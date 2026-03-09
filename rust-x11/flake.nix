@@ -12,7 +12,7 @@
     with pkgs; {
       devShells.${system}.default = mkShell {
           packages = [
-            xorg.xmodmap
+            xmodmap
             gdb
           ];
           
@@ -27,13 +27,13 @@
             # cargo watch -x run
             cargo-watch
             pkg-config
-            xorg.libX11
-            xorg.libXft
-            xorg.libXrandr
-            xorg.libXinerama
+            libX11
+            libXft
+            libXrandr
+            libXinerama
           ];
 
-          LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath [ pkgs.xorg.libX11 pkgs.xorg.libXcursor pkgs.xorg.libXrandr pkgs.xorg.libXi pkgs.xorg.libXft pkgs.fontconfig pkgs.freetype ]}";
+          LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath [ pkgs.libX11 pkgs.libXcursor pkgs.libXrandr pkgs.libXi pkgs.libXft pkgs.fontconfig pkgs.freetype ]}";
         };
 
       formatter.x86_64-linux = legacyPackages.${system}.nixpkgs-fmt;
